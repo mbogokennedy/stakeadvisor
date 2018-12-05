@@ -1,0 +1,7 @@
+/static/admin
+/static/node_modules
+/static/package-lock.json
+*.bak
+*.sqlite3
+.env
+__pycache__/

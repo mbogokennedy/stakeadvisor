@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% load i18n %} {% block content %} {% block home-inner %} {% endblock home-inner %}
+<div class="container">
+    <div class="row">
+        <h5 class="mt-3">{% trans 'Account Settings' %}</h5>
+        <div class="mx-auto bg-white p-5 mb-3 mt-5">
+            <div class="col-xm-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="page-header">
+
+                </div>
+                <form method="post" class="form-label-group justify-content-center form-profile" novalidate>
+                    {% csrf_token %}
+                    <h1 class="t-color">
+                        <strong>Profile Update</strong>
+                    </h1>
+                    <p>Please fill in the additional details bellow to update your Profie</p>
+                    {{ user_form|crispy }} {{ profile_form|crispy }}
+                    <button type="submit" class='btn btn-lg c-btn2'>Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

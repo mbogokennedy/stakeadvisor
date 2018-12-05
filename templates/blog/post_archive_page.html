@@ -1,0 +1,42 @@
+{% extends 'blog/post_list_page.html' %} {% load el_pagination_tags %} {% load markdown_deux_tags %} {% block content %} <br> {% if posts %} {% paginate posts %} {% for post in posts %}
+<section id="postartical-section">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-xm-12 col-sm-8">
+                <div class="card p-2 mt-2">
+                    <article itemscope>
+                        <header itemprop="name">
+                            <div class="mx-auto">
+                                <div>
+                                    <a href="{{ post.get_absolute_url }}" class="t-color">
+                                        <h4 class="pt-2 pb-2">{{ post.title }}</h4>
+                                    </a>
+                                </div>
+                                <div>
+                                    <i class="fa fa-user fa-2x"></i>
+                                    <span class="h5 text-muted pl-2">By</span>
+                                    <span class="h5 text-muted pl-2" itemprop="author">{{ post.posted_by }}</span>
+                                    <span itemprop="datePublished" class="text-muted pl-3">
+										On {{ post.post_date }}
+									</span>
+                                    <span class="text-muted pl-3">
+										<a itemprop="discussionUrl" href="{{ post.get_absolute_url }}#comments">
+											<span itemprop="comment" class="t-color">
+												{{ post.comment_count }} comment{{ post.comment_count|pluralize }}
+											</span>
+                                    </a>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                        </header>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>{% endfor %} {% show_more "Load more blog posts" %} {% else %}
+<p>There's no blog entries...</p>
+{% endif %}{% endblock %}

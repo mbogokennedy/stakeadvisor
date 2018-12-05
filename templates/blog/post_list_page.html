@@ -1,0 +1,124 @@
+{% extends 'base.html' %} {% load el_pagination_tags %} {% load markdown_deux_tags %} {% block header %}
+<header class="f-bg">
+    <div>
+        <div class="navbar-wrapper" id="baseNavbar">
+            <nav class="navbar navbar-expand-md navbar-dark static">
+                <div class="container">
+
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        {% block navbar %}
+                        <ul class="navbar-nav" id="accountauth">
+                            <li class="nav-item nav-tabs mr-3">
+                                <a class="nav-link text-white font-weight-bold" href="{% url 'index' %}">Home</a>
+                            </li>
+                            <li class="nav-tabs nav-item mr-3">
+                                <a class="nav-link text-white font-weight-bold" href="{% url 'besttips' %}">Favourite Tips</a>
+                            </li>
+                            <li class="nav-tabs nav-item mr-3">
+                                <a href="{% url 'alltips' %}" class="nav-link text-white font-weight-bold">Football Tips</a>
+                            </li>
+                            <li class="nav-tabs nav-item mr-3">
+                                <a href="{% url 'livescore' %}" class="nav-link text-white font-weight-bold">Live Scores</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item nav-tabs">
+                                <a href="{% url 'blog_index' %}" class="nav-link text-white font-weight-bold">
+                                   Football News
+                                </a>
+                            </li>
+                        </ul> {% endblock %} {% block authen %}
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{% url 'blog_archive' %}" class="nav-link text-white">
+                                    <small>Our Archive</small>
+                                </a>
+                            </li>
+                        </ul> {% endblock %}
+                    </div>
+            </nav>
+            </div>
+        </div>
+</header> {% endblock %} {% block content %}
+
+<section id="postartical-section" class="m-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-2 m-0"></div>
+
+            <div class="col-sm-12 col-md-6">
+
+                {% block postlist %} {% if posts %} {% paginate posts %} {% for post in posts|slice:":5" %}
+                <article itemscope>
+                    <header itemprop="name">
+                        <div class="mx-auto">
+                            <div>
+                                <h4 class="pt-3 t-color"><a class="button right t-color" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                            </div>
+                            <div>
+                                <i class="fa fa-user fa-2x"></i>
+                                <span class="h5 text-muted pl-2">By</span>
+                                <span class="h5 text-muted pl-2" itemprop="author">{{ post.posted_by }}</span>
+                                <span itemprop="datePublished" class="text-muted pl-3">
+                                            On {{ post.post_date }}
+                                        </span>
+                                <span class="text-muted pl-3">
+                                            <a itemprop="discussionUrl" href="{{ post.get_absolute_url }}#comments">
+                                                <span itemprop="comment" class="t-color">
+                                                    {{ post.comment_count }} comment{{ post.comment_count|pluralize }}
+                                                </span>
+                                </a>
+                                </span>
+                                <img src="{{ post.uploadedImage.url }}" alt="" class="pt-3 img2 img-fluid mb-3">
+                            </div>
+                        </div>
+
+
+                    </header>
+
+                    <div>
+                        <p class="text-justified" itemprop="articleBody">{{ post.bodytext|truncatewords:40 }}</p>
+                        <footer>
+                            <a class="button right t-color" href="{{ post.get_absolute_url }}">Read more</a>
+                            <span class="hidden" itemprop="wordCount">{{ post.bodytext|wordcount }}</span>
+                        </footer>
+                    </div>
+                    <hr>
+                </article>{% endfor %} {% show_more "Load more blog posts" %} {% else %}
+                <p>There's no blog entries...</p>
+                {% endif %}{% endblock %}
+            </div>
+
+            <div class="col-sm-12 col-md-4 m-0">
+                <div>
+                    <h5 class="custom-bg text-center p-3 text-white font-weight-vold ">Our Latest Football News</h5>
+                </div>
+                {% if posts %} {% paginate posts %} {% for post in posts|slice:":5" %}
+                <div class="col-12">
+                    <div class="d-flex flex-row">
+                        <main class="main inner-container">
+                            <div class="sidebar">
+                                <article itemscope>
+                                    <header itemprop="name">
+                                        <div class="">
+                                            <a href="{{ post.get_absolute_url }}" class="t-color">
+                                                <p>{{ post.title }}</p>
+                                            </a>
+                                        </div>
+                                    </header>
+                                </article>
+                            </div>
+                        </main>
+                    </div>
+                </div>{% endfor %} {% show_more "Load more blog posts" %} {% else %}
+                <p>There's no blog entries...</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<br>{% endblock %}

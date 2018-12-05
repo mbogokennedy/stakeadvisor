@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% load static %} {% load i18n %} {% block display %}{% endblock %} {% block content %} {% block home-inner %} {% endblock home-inner %}
+<section class="mt-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-sm-12"></div>
+            <div class="col-md-8 col-sm-12">
+                <div>
+                    <h5 class="c-bg text-center p-3 text-white font-weight-vold ">All Our Today's Football Tips</h5>
+                </div>
+                <table id="table-small" class="table">
+                    <div class="t-color d-table d-table-cell">
+                        <thead>
+                            {% for tip in tips %}
+                            <tr>
+                                <td><small class="t-color">{{ tip.kick_of_Time }}</small></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ tip.home_Team }} </p><p> {{ tip.home_Odd }}</p></small></td>
+                                <td class="f-bg"><small class="text-white t-color text-center"><p>Draw </p> <p> {{ tip.draw_Odd }}</p></small></td>
+                                <td class="f-bg"><small class="text-white t-color text-center"><p>{{ tip.away_Team }} </p><p> {{ tip.away_Odd }}</p></small></td>
+                            </tr>
+                            <tr>
+                                <th class="f-bg"><small class="font-weight-bold text-center text-white"><p>Home Win %</p></small></th>
+                                <th class="f-bg"><small class="font-weight-bold text-white text-center"><p>Away Win %</p></small></th>
+                                <th class="f-bg"><small class="font-weight-bold text-white text-center"><p>Our Prediction</p></small></th>
+                            </tr>
+                            <tr>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ tip.home_Percent }}</p></small></td>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ tip.away_Percent }}</p></small></td>
+                                <td class="custom-bg"><small class="text-white text-center"><p>{{ tip.prediction }}</p></small></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </div>
+                </table>
+            </div>
+            <div class="col-md-2 col-sm-12"></div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

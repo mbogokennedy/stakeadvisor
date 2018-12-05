@@ -1,0 +1,30 @@
+{% extends "base.html"%} {% load crispy_forms_tags %} {% load i18n %} {% block content%} {% block home-inner %} {% endblock home-inner %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="mx-auto mt-4 bg-white p-5">
+            <div class="text-center">
+                <h1>
+                    <strong class="t-color">Sign Up</strong>
+                </h1>
+                <p>Already have an account? Then please <a href="{% url 'login' %}">Log in</a>.</p>
+            </div>
+
+            <form class="form-label-group justify-content-center" id="signup" method="post" action="{% url 'signup' %}">
+                {% csrf_token %} {{ profile_form|crispy }} {{ form|crispy }} {% if redirected_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{redirect_field_value}}"> {% endif %}
+                <div>
+                    <button type="submit" class='btn btn-lg c-btn2' value="signup">{% trans "Sign up"%} &raquo;</button>
+                </div>
+            </form>
+            <div class="pt-3">
+                <p>
+                    By clicking Register, you agree to
+                    <a class="t-color2" href="" data-toggle="modal" data-target="#termscModal">terms of use</a> and
+                    <a class="t-color2" href="" data-toggle="modal" data-target="#privacycModal"> privacy policy.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr> {% endblock %}

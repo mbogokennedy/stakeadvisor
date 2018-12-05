@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% load i18n %} {% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="mx-auto mt-5 mb-5 bg-white pr-4 pl-4 pb-3">
+            {% if confirm_message %}
+            <div class="alert alert-success">{{confirm_message}}</div>
+            {% endif %} {% if form %}
+            <div class="modal-header">
+                <div class="modal-title" id="contactModalTitle">
+                    <div class="d-flex flex-row">
+                        <div class="pt-4 align-self-start">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="pl-5 pt-4 ml-3 align-self-end">
+                            <h5 class="font-weight-bold t-color">Contact Stake Advisor</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <form id="contactForm" method="post" action="{% url 'contact' %}">
+                    {% csrf_token %} {{ form|crispy }}
+                    <div class="form-actions">
+                        <button class="btn btn-block c-btn2 pr-3 pl-3" type="submit">{% trans "Send" %}</button>
+                    </div>
+                </form>
+            </div>{% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

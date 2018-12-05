@@ -1,0 +1,92 @@
+{% extends 'blog/post_list_page.html' %} {% load markdown_deux_tags %} {% block content %}
+<section class="pt-4" id="postartical-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-2"></div>
+
+            <div class="col-sm-12 col-md-8 text-justified m-0">
+                <article itemscope>
+                    <header itemprop="name">
+                        <div class="mx-auto">
+                            <div>
+                                <h2 class="pt-3 t-color text-center">{{ post.title }}</h2>
+                            </div>
+                            <div>
+                                <i class="fa fa-user fa-2x"></i>
+                                <span class="h5 text-muted pl-2">By</span>
+                                <span class="h5 text-muted pl-2" itemprop="author">{{ post.posted_by }}</span>
+                                <span itemprop="datePublished" class="text-muted pl-3">
+									On {{ post.post_date }}
+								</span>
+                                <span class="text-muted pl-3">
+									<a itemprop="discussionUrl" href="{{ post.get_absolute_url }}#comments">
+										<span itemprop="comment" class="t-color">
+											{{ post.comment_count }} comment{{ post.comment_count|pluralize }}
+										</span>
+                                </a>
+                                </span>
+                                <img src="{{ post.uploadedImage.url }}" alt="" class="pt-3 custom-image img-fluid mb-3">
+                            </div>
+                        </div>
+
+
+                    </header>
+
+                    <div>
+                        <p class="" itemprop="articleBody">{{ post.bodytext|markdown }}</p>
+                    </div>
+                </article>
+                <div class="breadcrumb">
+                    <a id="comments">
+                        <h5 class="text-muted">Comment</h5>
+                    </a>
+                </div>
+                <div class="mb-3">{% if post.allow_comments %} {% if user.is_authenticated %} {% include 'blog/includes/post_form.html' %} {% else %}
+                    <p class="alert-success p-3 text-center">Please login to Comment</p>{% endif %}
+                </div>
+                <div>
+                    <table class="table p-0">
+                        <tbody>
+                            <tr>
+                                <td class="text-left align-bottom">
+                                    <a itemprop="discussionUrl" href="{{ post.get_absolute_url }}#comments">
+                                        <span itemprop="comment" class="h5 t-color">
+											{{ post.comment_count }} Comment{{ post.comment_count|pluralize }}
+										</span>
+                                    </a>
+                                </td>
+                                <td class="text-right align-bottom">
+
+                                    {% if user.is_authenticated %}
+                                    <li class="nav-item list-group">
+                                        <a class="nav-link mr-3 t-color" href="#">
+                                            <span class="h5">{{ user.get_username }}</span>
+                                        </a>
+                                    </li>
+                                    {% else %}
+                                    <li class="nav-item list-group">
+                                        <a class="nav-link mr-3 t-color" href="{% url 'login' %}?next={{ post.get_absolute_url }}#comments">Login
+										</a>
+                                    </li> {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    {% include page_template %}
+                    <div>
+                        {% else %}
+                        <div class="text-center align-center alert text-white f-bg p-1">
+                            <p>Comments for this thread are now closed</p>
+                        </div>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2 m-0">
+
+            </div>
+        </div>
+    </div>
+</section>{% endblock %}

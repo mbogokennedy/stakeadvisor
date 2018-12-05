@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% load i18n %} {% block content %} {% block home-inner %} {% endblock home-inner %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="mx-auto bg-white p-5 mb-3 mt-5">
+            <h3 class="text-center t-color"><strong>{% trans "Log in" %}</strong></h3>
+            {% if form.errors %}
+            <div class="pt-2 pb-2 alert-warning">
+                <p class="lead">Wrong username or password.</p>
+            </div>
+            {% endif %} {% if next %} {% if user.is_authenticated %}
+            <div class="alert alert-danger">
+                <p class="text-white">Wrong username or password. Please enter the correct username and password.</p>
+            </div>
+
+            {% else %}
+            <div></div>
+            {% endif %} {% endif %}
+
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <p class="text-center">Kindly enter your account details to continue. </p>
+                {{ form|crispy }}
+
+                <div>
+                    <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                </div>
+                <div>
+                    <input type="submit" class='btn btn-lg c-btn2' value="Login securely &raquo;" />
+                    <input type="hidden" name="next" value="{{ next }}">
+                </div>
+            </form>
+
+            <p class="pt-2">
+                <span><a href="{% url 'signup' %}" class="t-color">I don't have an account |</a></span>
+                <span><a href="{% url 'password_reset' %}" class="t-color"> Forgotten password?</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

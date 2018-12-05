@@ -1,0 +1,17 @@
+{% load widget_tweaks %} {% load crispy_forms_tags %} {{ comment_form.media }}
+<section id="filtersearch" class="text-white">
+    <div class="align-self-center text-center align-item-center">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mx-auto">
+                <div class="row">
+                    <div class="form-group col-sm-12 col-md-12">
+                        <label></label>{% render_field comment_form.bodytext class="form-control" %}
+                    </div>
+                </div>
+                <input type="submit" class="btn c-btn1" value="Comment" />
+            </div>
+
+        </form>
+    </div>
+</section>

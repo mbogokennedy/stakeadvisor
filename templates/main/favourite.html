@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% load static %} {% load i18n %} {% block display %}{% endblock %} {% block content %} {% block home-inner %} {% endblock home-inner %}
+<section class="mt-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-sm-12"></div>
+            <div class="col-md-8 col-sm-12">
+                <div>
+                    <h5 class="c-bg text-center p-3 text-white font-weight-vold ">Our Today's Favorite Tips</h5>
+                </div>
+                <table id="table-small" class="table">
+                    <div class="t-color d-table d-table-cell">
+                        <thead>
+                            {% for favour in favourites %}
+                            <tr>
+                                <td><small class="t-color">{{ favour.league }}</small></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ favour.kick_of_Time }} </p></small></td>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ favour.home_Team }} </p></small></td>
+                                <td class="f-bg"><small class="text-white t-color text-center"><p>Vs </p></small></td>
+                                <td class="f-bg"><small class="text-white t-color text-center"><p>{{ favour.away_Team }} </p></small></td>
+                            </tr>
+                            <tr>
+                                <th class="f-bg"><small class="font-weight-bold text-center text-white"><p>Our Favourite</p></small></th>
+                                <th class="f-bg"><small class="font-weight-bold text-white text-center"><p>Win %</p></small></th>
+                                <th class="f-bg"><small class="font-weight-bold text-white text-center"><p>Win Odd</p></small></th>
+                                <th class="f-bg"><small class="font-weight-bold text-white text-center"><p>Result</p></small></th>
+                            </tr>
+                            <tr>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ favour.our_Pick }}</p></small></td>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ favour.win_Percent }} %</p></small></td>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ favour.win_Odd }}</p></small></td>
+                                <td class="custom-bg"><small class="text-white text-center"><p>{{ favour.result }}</p></small></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </div>
+                </table>
+            </div>
+            <div class="col-md-2 col-sm-12"></div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

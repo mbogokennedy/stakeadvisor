@@ -1,0 +1,169 @@
+{% extends "base.html" %} {% block head %} {% load el_pagination_tags %} {% load markdown_deux_tags %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="We provide with tips to increase your winning percentage">
+    <meta name="author" content="Mbogo Kennedy">
+    <link rel="icon" href="../../favicon.ico"> {% block title %}
+    <title>Stake Advisor | The Home for Investors</title>{% endblock %} {% load static %}
+    <link rel="stylesheet" href="{% static 'src/css/font-awesome.all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'src/css/style.css' %}">
+</head>
+{% endblock head %}{% load static %} {% load i18n %} {% block content %}
+
+<section class="mt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="mb-5">
+                    {% load static %}
+                    <img src="{% static 'src/img/vip.jpg' %}" alt="" class="img2 img-fluid">
+                    <div>
+                        <h5 class="custom-bg text-center p-3 text-white font-weight-vold ">Become A Patreon</h5>
+                    </div>
+                    <div>
+                        <p>To use Stake Advisor is absolutely free. However, maintaining the database and the website is expensive. If you would like to support us in maintainaing the database and site you can do so by donating as low as one dollar to our
+                            paypal account <span class="t-color">stakeadvisor19@gmail.com</span></p>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="c-bg text-center p-3 text-white font-weight-vold ">Some of Our Todays Favorites Tips</h5>
+                </div>
+                <table id="table-small" class="table">
+                    <div class="t-color d-table d-table-cell">
+                        <thead>
+                            {% for tip in tips|slice:"7" %}
+                            <tr>
+                                <td><small class="t-color">{{ tip.kick_of_Time }}</small></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ tip.home_Team }} </p><p> {{ tip.home_Odd }}</p></small></td>
+                                <td class="f-bg"><small class="text-white t-color text-center"><p>Draw </p> <p> {{ tip.draw_Odd }}</p></small></td>
+                                <td class="f-bg"><small class="text-white t-color text-center"><p>{{ tip.away_Team }} </p><p> {{ tip.away_Odd }}</p></small></td>
+                            </tr>
+                            <tr>
+                                <th class="f-bg"><small class="font-weight-bold text-center text-white"><p>Home Win %</p></small></th>
+                                <th class="f-bg"><small class="font-weight-bold text-white text-center"><p>Away Win %</p></small></th>
+                                <th class="f-bg"><small class="font-weight-bold text-white text-center"><p>Our Prediction</p></small></th>
+                            </tr>
+                            <tr>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ tip.home_Percent }}</p></small></td>
+                                <td class="f-bg"><small class="text-white text-center"><p>{{ tip.away_Percent }}</p></small></td>
+                                <td class="custom-bg"><small class="text-white text-center"><p>{{ tip.prediction }}</p></small></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </div>
+                </table>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <strong class="text-center">
+                            <h6 class="font-weight-bold text-white c-bg p-3 mt-3">Top 5 League Table</h6>
+                        </strong>
+                <div>
+                    <div class="navbar">
+                        <button id="btn-epl" class="pr-4 pl-4 pb-2 pt-2 btn c-btn2">England</button>
+                        <button id="btn-fpl" class="pr-4 pl-4 pb-2 pt-2 btn c-btn2">France</button>
+                        <button id="btn-gpl" class="pr-4 pl-4 pb-2 pt-2 btn c-btn2">Germany</button>
+                        <button id="btn-ipl" class="pr-4 pl-4 pb-2 pt-2 btn c-btn2">Italy</button>
+                        <button id="btn-spl" class="pr-4 pl-4 pb-2 pt-2 btn c-btn2">Spain</button>
+
+                    </div>
+                </div>
+                <div class="d-flex flex-row mb-4">
+                    <main class="main inner-container">
+                        <div class="mx-auto">
+                            <article itemscope>
+                                <header itemprop="name">
+                                    <div id="epl" class="">
+                                        <iframe frameborder="0" scrolling="no" width="540" height="650" src="https://www.fctables.com/england/premier-league/iframe/?type=table&lang_id=2&country=67&template=10&team=&timezone=Africa/Nairobi&time=24&po=1&ma=1&wi=1&dr=1&los=1&gf=1&ga=1&gd=1&pts=1&ng=1&form=1&width=550&height=700&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                        <iframe frameborder="0" scrolling="no" width="540" height="350" src="https://www.fctables.com/england/premier-league/iframe=/?type=top-scorers&lang_id=2&country=67&template=10&team=&timezone=Africa/Nairobi&time=24&limit=10&ppo=1&pte=1&pgo=1&pma=1&pas=1&ppe=1&width=550&height=350&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                    </div>
+                                    <div id="fpl" class="">
+                                        <iframe frameborder="0" scrolling="no" width="540" height="650" src="https://www.fctables.com/france/ligue-1/iframe/?type=table&lang_id=2&country=77&template=15&team=&timezone=Africa/Nairobi&time=24&po=1&ma=1&wi=1&dr=1&los=1&gf=1&ga=1&gd=1&pts=1&ng=1&form=1&width=550&height=700&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                        <iframe frameborder="0" scrolling="no" width="540" height="350" src="https://www.fctables.com/france/ligue-1/iframe=/?type=top-scorers&lang_id=2&country=77&template=15&timezone=Africa/Nairobi&time=24&limit=10&ppo=1&pte=1&pgo=1&pma=1&pas=1&ppe=1&width=550&height=350&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                    </div>
+                                    <div id="gpl" class="">
+                                        <iframe frameborder="0" scrolling="no" width="540" height="600" src="https://www.fctables.com/germany/1-bundesliga/iframe/?type=table&lang_id=2&country=83&template=16&team=&timezone=Africa/Nairobi&time=24&po=1&ma=1&wi=1&dr=1&los=1&gf=1&ga=1&gd=1&pts=1&ng=1&form=1&width=550&height=700&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                        <iframe frameborder="0" scrolling="no" width="540" height="350" src="https://www.fctables.com/germany/1-bundesliga/iframe=/?type=top-scorers&lang_id=2&country=83&template=16&timezone=Africa/Nairobi&time=24&limit=10&ppo=1&pte=1&pgo=1&pma=1&pas=1&ppe=1&width=550&height=350&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                    </div>
+                                    <div id="ipl" class="">
+                                        <iframe frameborder="0" scrolling="no" width="540" height="650" src="https://www.fctables.com/italy/serie-a/iframe/?type=table&lang_id=2&country=108&template=17&team=&timezone=Africa/Nairobi&time=24&po=1&ma=1&wi=1&dr=1&los=1&gf=1&ga=1&gd=1&pts=1&ng=1&form=1&width=550&height=700&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                        <iframe frameborder="0" scrolling="no" width="540" height="350" src="https://www.fctables.com/italy/serie-a/iframe=/?type=top-scorers&lang_id=2&country=108&template=17&timezone=Africa/Nairobi&time=24&limit=10&ppo=1&pte=1&pgo=1&pma=1&pas=1&ppe=1&width=550&height=700&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                    </div>
+                                    <div id="spl" class="">
+                                        <iframe frameborder="0" scrolling="no" width="540" height="650" src="https://www.fctables.com/spain/liga-bbva/iframe/?type=table&lang_id=2&country=201&template=43&team=&timezone=Africa/Nairobi&time=24&po=1&ma=1&wi=1&dr=1&los=1&gf=1&ga=1&gd=1&pts=1&ng=1&form=1&width=550&height=700&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                        <iframe frameborder="0" scrolling="no" width="540" height="350" src="https://www.fctables.com/spain/liga-bbva/iframe=/?type=top-scorers&lang_id=2&country=201&template=43&team=&timezone=Africa/Nairobi&time=24&limit=10&ppo=1&pte=1&pgo=1&pma=1&pas=1&ppe=1&width=550&height=700&font=Verdana&fs=12&lh=24&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=6baeec&hfc=FFFFFF"></iframe>
+                                        <div style="text-align:center;"></div>
+                                    </div>
+                                </header>
+                            </article>
+                        </div>
+                    </main>
+                </div>
+                <h5 class="c-bg text-center p-3 text-white font-weight-vold">Our Latest Article</h5>
+                {% block postlist %} {% if posts %} {% paginate posts %} {% for post in posts|slice:"2" %}
+                <div id="postartical-section" class="mb-3">
+                    <article itemscope>
+                        <header itemprop="name">
+                            <div class="mx-auto">
+                                <div>
+                                    <h4 class="pt-3 t-color"><a class="button right t-color" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                                </div>
+                                <div>
+                                    <i class="fa fa-user fa-2x"></i>
+                                    <span class="h5 text-muted pl-2">By</span>
+                                    <span class="h5 text-muted pl-2" itemprop="author">{{ post.posted_by }}</span>
+                                    <span itemprop="datePublished" class="text-muted pl-3">
+                                                        On {{ post.post_date }}
+                                                    </span>
+                                    <span class="text-muted pl-3">
+                                                        <a itemprop="discussionUrl" href="{{ post.get_absolute_url }}#comments">
+                                                            <span itemprop="comment" class="t-color">
+                                                                {{ post.comment_count }} comment{{ post.comment_count|pluralize }}
+                                                            </span>
+                                    </a>
+                                    </span>
+                                    <img src="{{ post.uploadedImage.url }}" alt="" class="pt-3 img2 img-fluid mb-3">
+                                </div>
+                            </div>
+
+
+                        </header>
+
+                        <div>
+                            <p class="text-justified" itemprop="articleBody">{{ post.bodytext|truncatewords:40 }}</p>
+                            <footer>
+                                <a class="button right t-color" href="{{ post.get_absolute_url }}">Read more</a>
+                                <span class="hidden" itemprop="wordCount">{{ post.bodytext|wordcount }}</span>
+                            </footer>
+                        </div>
+                        <hr>
+                    </article>
+                </div>{% endfor %} {% show_more "Load more blog posts" %} {% else %}
+                <p>There's no blog entries...</p>
+                {% endif %}{% endblock %}
+
+            </div>
+
+
+
+        </div>
+    </div>
+</section>{% endblock %}
+</div>

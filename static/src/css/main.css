@@ -1,0 +1,36 @@
+@supports ((-webkit-clip-path:inset(0px 0px)) or (clip-path:inset(0px 0px))){
+    .u-angled-up-600-700{padding-bottom:calc(10vw + 4.44444rem)}
+    .u-angled-up-600-700{-webkit-clip-path:polygon(0 10vw,100% 0,100% calc(100% - 10vw),0 100%);clip-path:polygon(0 10vw,100% 0,100% calc(100% - 10vw),0 100%);padding-top:calc(10vw + 2.22222rem)}
+    .u-angled-topUp-400{-webkit-clip-path:polygon(0 10vw,100% 0,100% 100%,0 100%);clip-path:polygon(0 10vw,100% 0,100% 100%,0 100%)}
+    .u-angled-topUp-400{padding-top:calc(10vw + .88889rem)}
+    .u-angled-top-400-pull{margin-top:calc(-10vw + -.88889rem)}}
+    .u-elevation-card{z-index:1}
+    .self-start{-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start}
+    #hero>.row:first-child>.col:first-child{
+        display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start
+    }
+    #hero>.row:first-child .lead{
+        margin:0
+    }
+    #partners{
+        padding-top:.88889rem
+    }
+@media (max-width:599px){
+    #partners .LogoCluster{-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start}
+    #partners .LogoCluster-logo{-webkit-transform:scale(.85);transform:scale(.85)}
+}
+#solutions .u-color-link:active,#solutions .u-color-link:hover{color:#0ca750;text-decoration:underline}
+@media (min-width:600px){#solutions .row:first-child{text-align:center}}
+@media (max-width:599px){#hero .icon._checkmark{display:none}#hero>.row:first-child{-webkit-flex-wrap:nowrap;-ms-flex-wrap:nowrap;flex-wrap:nowrap}
+    #hero>.row:first-child>.col:first-child{-webkit-box-flex:0;-webkit-flex:0 0 66%;-ms-flex:0 0 66%;flex:0 0 66%}#hero>.row:first-child>.col:last-child{position:relative;-webkit-box-flex:1;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto}
+    #hero>.row:first-child>.col:last-child img{position:absolute;top:0;left:0;width:275px;max-width:none;margin-top:-5rem}
+    #trySprout{text-align:center}
+}
+#c-ctaSection--angled::after {
+    content: '';
+    display: block;
+    background: -webkit-linear-gradient(135deg, #2CD5C4, #00AEEF);
+    background: -o-linear-gradient(135deg, #2CD5C4, #00AEEF);
+    background: -moz-linear-gradient(135deg, #2CD5C4, #00AEEF);
+    background: linear-gradient(135deg, #2CD5C4, #00AEEF);
+}
