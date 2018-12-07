@@ -164,12 +164,13 @@ IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 MEDIA_URL = '/media/'
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 LOGIN_REDIRECT_URL = '/'
 
