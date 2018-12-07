@@ -38,7 +38,7 @@
                                     <a class="dropdown-item mt-2 text-custom1" href="{% url 'profilesettings' %}">Profile Setting</a>
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item mt-2 text-custom1" href="{% url 'logout' %}">Log out</a>
+                                    <a class="dropdown-item mt-2 text-custom1" href="{% url 'logout' %}?next=/accounts/login/">Log out</a>
                                 </div>
                             </li>
                             {% else %}

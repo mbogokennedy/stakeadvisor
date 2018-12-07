@@ -31,7 +31,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 
 
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = False
 
 DATABASES = {
     'default': {
@@ -166,11 +166,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-LOGIN_URL = '/accounts/login/'
-
 LOGIN_REDIRECT_URL = '/'
 
-LOGOUT_REDIRECT_URL = LOGIN_URL
 
 
 db_from_env = dj_database_url.config(conn_max_age=500)
