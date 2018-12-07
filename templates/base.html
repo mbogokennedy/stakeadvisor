@@ -32,8 +32,8 @@
                             {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-white text-right" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Welcome: {{ user.get_username }}
-                                            </a>
+                                    <small class="font-weight-bold">Welcome: {{ user.first_name }}</small>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
                                     <a class="dropdown-item mt-2 text-custom1" href="{% url 'password_change' %}">Change password</a>
                                     <a class="dropdown-item mt-2 text-custom1" href="{% url 'profilesettings' %}">Profile Setting</a>
@@ -65,7 +65,7 @@
                             <a href="#" class="text-white">
                                 <i class="fab fa-facebook fa-3x"></i>
                             </a>
-                            <a href="#" class="text-white">
+                            <a href="https://twitter.com/AdvisorStake" class="text-white">
                                 <i class="fab fa-twitter fa-3x"></i>
                             </a>
                             <a href="#" class="text-white">
@@ -582,9 +582,6 @@
                 <div class="modal-body">
                     <div>
                         <p>It is illegal for anyone who is under 18 years of age to gamble using this site.</p>
-                        <p>In order to avoid unlawful betting, Stake Advisor reserves the right to carry out checks to verify the information provided. We may undertake searches with a third party for the purpose of verifying that you are 18 or over. Where
-                            these checks are unable to verify any customer is 18 or over, Stake Advisor reserves the right to ask for proof of age. Customer accounts may be suspended and funds withheld until satisfactory proof of age is provided.</p>
-                        <p>To prevent potential misuse if young people have access to a computer with Internet access please keep your account number, username and password confidential.</p>
                     </div>
                 </div>
             </div>
