@@ -28,7 +28,7 @@ class OurFavouritePick(models.Model):
     win_Percent = models.CharField(max_length=100)
     win_Odd = models.CharField(max_length=100)
     our_Pick = models.CharField(max_length=100)
-    result = models.CharField(max_length=100)
+    result = models.CharField(max_length=100, blank=True, null=True)
     class Meta:
         verbose_name_plural = "Our Favourite Picks"
 
