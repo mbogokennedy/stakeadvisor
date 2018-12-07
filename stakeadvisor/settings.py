@@ -66,7 +66,6 @@ INSTALLED_APPS = [
     'pagedown',
     'crispy_forms',
     'widget_tweaks',
-    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
