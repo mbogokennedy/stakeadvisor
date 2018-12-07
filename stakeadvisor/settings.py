@@ -31,7 +31,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 
 
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 DATABASES = {
     'default': {
