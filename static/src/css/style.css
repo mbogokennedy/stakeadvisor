@@ -49,16 +49,6 @@ body {
   background: #e9ecef;
   padding: 10px; }
 
-.blog-section {
-  background: url("../img/pexels-photo-111963.jpeg") no-repeat;
-  background-size: cover;
-  background-position: center; }
-  .blog-section .dark-overlay {
-    background-color: #48082e;
-    background-size: cover;
-    background-position: center; }
-  .blog-section .home-inner {
-    padding-top: 30px; }
 
 .navbar a {
   font-size: 18px; }
