@@ -5,7 +5,7 @@ cloudinary==1.14.0
 defusedxml==0.5.0
 diff-match-patch==20121119
 dj-database-url==0.5.0
-Django==2.0.6
+Django==2.2.10
 django-allauth==0.38.0
 django-cloudinary-storage==0.2.3
 django-crispy-forms==1.7.2
