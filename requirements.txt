@@ -18,7 +18,7 @@ django-rest-framework==0.1.0
 django-simple-blog==0.3.0
 django-simple-math-captcha==1.0.7
 django-widget-tweaks==1.4.3
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 et-xmlfile==1.0.1
 gunicorn==19.9.0
 idna==2.7
